@@ -423,10 +423,11 @@ public class Recipient implements RecipientModifiedListener {
   }
 
   public synchronized @NonNull FallbackContactPhoto getFallbackContactPhoto() {
+    if(this.profileName != null)       return new GeneratedContactPhoto(this.profileName);
     if      (isResolving())            return new TransparentContactPhoto();
     else if (isGroupRecipient())       return new ResourceContactPhoto(R.drawable.ic_group_white_24dp, R.drawable.ic_group_large);
     else if (!TextUtils.isEmpty(name)) return new GeneratedContactPhoto(name);
-    else                               return new GeneratedContactPhoto(this.profileName);
+    else                               return new GeneratedContactPhoto("#");
   }
 
   public synchronized @Nullable ContactPhoto getContactPhoto() {

@@ -67,12 +67,12 @@ public class ProfilePreference extends Preference {
     final Address localAddress = Address.fromSerialized(TextSecurePreferences.getLocalNumber(getContext()));
     final String  profileName  = TextSecurePreferences.getProfileName(getContext());
 
-    GlideApp.with(getContext().getApplicationContext())
-            .load(new ProfileContactPhoto(localAddress, String.valueOf(TextSecurePreferences.getProfileAvatarId(getContext()))))
-            .error(new ResourceContactPhoto(R.drawable.ic_camera_alt_white_24dp).asDrawable(getContext(), getContext().getResources().getColor(R.color.grey_400)))
-            .circleCrop()
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .into(avatarView);
+//    GlideApp.with(getContext().getApplicationContext())
+//            .load(new ProfileContactPhoto(localAddress, String.valueOf(TextSecurePreferences.getProfileAvatarId(getContext()))))
+//            .error(new ResourceContactPhoto(R.drawable.ic_camera_alt_white_24dp).asDrawable(getContext(), getContext().getResources().getColor(R.color.grey_400)))
+//            .circleCrop()
+//            .diskCacheStrategy(DiskCacheStrategy.ALL)
+//            .into(avatarView);
 
     if (!TextUtils.isEmpty(profileName)) {
       profileNameView.setText(profileName);
