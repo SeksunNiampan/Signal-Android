@@ -438,14 +438,14 @@ public class CreateProfileActivity extends BaseActionBarActivity implements Inje
           return false;
         }
 
-        try {
-          accountManager.setProfileAvatar(profileKey, avatar);
-          AvatarHelper.setAvatar(CreateProfileActivity.this, Address.fromSerialized(TextSecurePreferences.getLocalNumber(context)), avatarBytes);
-          TextSecurePreferences.setProfileAvatarId(CreateProfileActivity.this, new SecureRandom().nextInt());
-        } catch (IOException e) {
-          Log.w(TAG, e);
-          return false;
-        }
+//        try {
+//          accountManager.setProfileAvatar(profileKey, avatar);
+//          AvatarHelper.setAvatar(CreateProfileActivity.this, Address.fromSerialized(TextSecurePreferences.getLocalNumber(context)), avatarBytes);
+//          TextSecurePreferences.setProfileAvatarId(CreateProfileActivity.this, new SecureRandom().nextInt());
+//        } catch (IOException e) {
+//          Log.w(TAG, e);
+//          return false;
+//        }
 
         ApplicationContext.getInstance(context).getJobManager().add(new MultiDeviceProfileKeyUpdateJob(context));
 
